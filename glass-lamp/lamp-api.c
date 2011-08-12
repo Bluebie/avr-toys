@@ -4,10 +4,6 @@
 #import <util/delay.h>
 #import "nice-things.c"
 
-//#include "lamp-api-spiutil.c"
-#include "binary.c"
-//#define clockPin 2
-//#define dataPin 1
 // when we're bitbanging, lets just use these pins
 #define clockPin 4
 #define dataPin 3
@@ -95,10 +91,10 @@ void pixelSetup() {
   // Setup Timer 0 to clock out our SPI bits
   // Can tweak down the number to increase framerate and improve dithering
   // Tweaking number up leaves more CPU time for other stuff
-  TCCR0A = B11110010; // CTC mode
-  TCCR0B = B00000010; // speed = clock / 8
+  TCCR0A = 0b11110010; // CTC mode
+  TCCR0B = 0b00000010; // speed = clock / 8
   OCR0A = 64; // number to count to before next clock toggle
-  TIMSK = B00010000; // turn on Compare Match A interrupt
+  TIMSK = 0b00010000; // turn on Compare Match A interrupt
   
   // turn on interrupts globally
   sei();

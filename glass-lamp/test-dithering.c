@@ -1,3 +1,4 @@
+// just a little c program you can run on your regular computer to see how the dithering function outputs
 #import <stdio.h>
 #import <stdlib.h>
 #import "binary.c"
